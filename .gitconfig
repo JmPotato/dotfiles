@@ -3,20 +3,23 @@
     ci = commit
     st = status
     br = branch
+    # Pull upstream/master changes and push to origin/master
     sy = !sh -c 'git checkout master && git pull upstream master && git push origin master'
+    # Clean up local branches that have been merged into master
+    cu = !sh -c 'git remote prune origin && git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'
 [pull]
     rebase = false
-[url "git@github.com:"]
-    insteadOf = https://github.com/
 [core]
     pager = delta
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    line-numbers = true    
+    line-numbers = true
     side-by-side = true
-    navigate = true  # use n and N to move between diff sections
+    navigate = true # use n and N to move between diff sections
 [merge]
     conflictstyle = diff3
 [diff]
     colorMoved = default
+[url "git@github.com:"]
+    insteadOf = https://github.com/
