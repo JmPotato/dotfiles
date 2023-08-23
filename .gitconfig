@@ -6,7 +6,7 @@
     # Pull upstream/master changes and push to origin/master
     sy = !sh -c 'git checkout master && git pull upstream master && git push origin master'
     # Clean up local branches that have been merged into master
-    cu = !sh -c 'git remote prune origin && git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'
+    cu = !sh -c '(git remote | xargs -r -t -n 1 git remote prune) && (git branch --merged | grep -v \"\\*\" | xargs -r -t -n 1 git branch -d)'
 [pull]
     rebase = false
 [core]
@@ -21,5 +21,6 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
+# Always use SSH for GitHub
 [url "git@github.com:"]
     insteadOf = https://github.com/
