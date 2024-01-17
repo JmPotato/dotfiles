@@ -3,12 +3,9 @@
     ci = commit
     st = status
     br = branch
-    # Pull upstream/master changes and push to origin/master
-    sy = !sh -c 'git checkout master && git pull upstream master && git push origin master'
-    # Clean up local branches that have been merged into master
-    cu = !sh -c '(git remote | xargs -r -t -n 1 git remote prune) && (git branch --merged | grep -v \"\\*\" | xargs -r -t -n 1 git branch -d)'
+    sy = !sh -c 'git checkout master && git pull upstream master && git push origin master && git remote prune origin'
 [pull]
-    rebase = false
+    rebase = true
 [core]
     pager = delta
 [interactive]
@@ -16,7 +13,7 @@
 [delta]
     line-numbers = true
     side-by-side = true
-    navigate = true # use n and N to move between diff sections
+    navigate = true
 [merge]
     conflictstyle = diff3
 [diff]
