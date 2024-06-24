@@ -1,9 +1,16 @@
+[commit]
+    gpgsign = true
 [alias]
     co = checkout
-    ci = commit
+    ci = commit -s -m
+    cia = commit -s --amend
+    cian = commit -s --amend --no-edit
+    ciana = commit -s --amend --no-edit --allow-empty
     st = status
     br = branch
-    sy = !sh -c 'git checkout master && git pull upstream master && git push origin master && git remote prune origin'
+    re = remote
+    sy = "!f() { git checkout $2 && git pull $1 $2 && git push origin $2; }; f"
+    cu = !sh -c 'git remote | xargs -n 1 git remote prune'
 [pull]
     rebase = true
 [core]
@@ -11,13 +18,10 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    line-numbers = true
+    line-numbers = true    
     side-by-side = true
-    navigate = true
+    navigate = true  # use n and N to move between diff sections
 [merge]
     conflictstyle = diff3
 [diff]
     colorMoved = default
-# Always use SSH for GitHub
-[url "git@github.com:"]
-    insteadOf = https://github.com/
