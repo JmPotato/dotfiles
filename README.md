@@ -13,12 +13,13 @@
 
 ## Shell Setup (macOS & Linux)
 
-- [Fish shell](https://fishshell.com/)
-- [Fisher](https://github.com/jorgebucaran/fisher)
-- [Starship](https://starship.rs/)
-- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
-- [z for fish](https://github.com/jethrokuan/z)
-- [Exa](https://the.exa.website/)
+- [fish](https://fishshell.com/)
+- [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish)
+- [starship](https://starship.rs/)
+- [thefuck](https://github.com/nvbn/thefuck)
+- [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+- [plugin-z](https://github.com/oh-my-fish/plugin-z)
+- [lsd](https://github.com/lsd-rs/lsd)
 
 ## Firefox Setup
 
