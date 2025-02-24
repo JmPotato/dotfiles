@@ -12,7 +12,6 @@ export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 # Setup
 ulimit -n 82920
 eval "$(/opt/homebrew/bin/brew shellenv)"
-pyenv init - | source
 starship init fish | source
 thefuck --alias | source
 
